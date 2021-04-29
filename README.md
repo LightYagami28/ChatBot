@@ -1,17 +1,36 @@
+<<<<<<< Updated upstream
+# IMPORTANT
+Since the API has been [discontinued](https://t.me/Intellivoid/559), this will no longer work. 
+
 # About
 A fun telegram userbot written in python3 using [Intellivoid](https://github.com/intellivoid)'s Coffeehouse API.
 Written by [this person](https://t.me/TheRealPhoenix)!
 ## Installation
 Open up your terminal and run these commands.
+=======
+# About ℹ️
+Welcome to our Telegram userbot, meticulously crafted in Python 3 and powered by [Intellivoid](https://github.com/intellivoid)'s Coffeehouse API. This masterpiece is the brainchild of [this illustrious individual](https://t.me/TheRealPhoenix)!
+>>>>>>> Stashed changes
 
-• ```git clone https://github.com/rsktg/Chatbot.git```
+## Installation 🔧
+Let's embark on the installation journey together:
 
-• ```cd Chatbot```
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/rsktg/Chatbot.git
+    ```
 
-• ```pip install -r requirements.txt```
+2. Navigate into the Chatbot directory:
+    ```bash
+    cd Chatbot
+    ```
 
-• Now make a copy of ```sample_config.ini``` and rename it to ```config.ini``` and enter your ```api_id``` and ```api_hash```. These can be obtained from [here](https://my.telegram.org).
+3. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
+<<<<<<< Updated upstream
 ### Non-Heroku users
 Edit ```NAME``` in ```generate_session.py```
 
@@ -21,34 +40,48 @@ Edit ```NAME``` in ```generate_session.py```
 • ```python3 string_session.py```
 
 You'll be asked to enter your phone number and 2FA password (if any). Copy and save the string session you get in the end.
+=======
+4. Duplicate the `sample_config.ini` file and rename the duplicate to `config.ini`. Then, fill in your `api_id` and `api_hash`, which you can obtain from [here](https://my.telegram.org).
+>>>>>>> Stashed changes
 
-### Two possible ways of going forward
-You can either use environment variables or edit the config.ini file further.
+5. Run the `string_session.py` script:
+    ```bash
+    python3 string_session.py
+    ```
 
-If you're going to use environment variables, then add a variable named ```ENV``` and set the value to anything you want.
-Now you can use environment variables.
+    Follow the prompts to enter your phone number and 2FA password (if applicable). Once completed, make sure to save the string session generated at the end.
 
-Add the following ones as well.
+### Configuration Options ⚙️
+You have two pathways for configuration:
 
+<<<<<<< Updated upstream
 • ```SESSION_NAME```: If you ran ```generate_session.py```, the name of the session you created.
 
 • ```STRING_SESSION```: The string session (Only for Heroku users).
 
 • ```CF_API_KEY```: You can get this API key from [here](https://coffeehouse.intellivoid.net)
+=======
+- **Using Environment Variables:**
+    Set up a variable named `ENV` with any desired value. Now you can utilize environment variables. Include the following:
 
-• ```DATABASE_URL```: The URL of your SQL database. It should look something like this - ```sqldbtype://username:pw@hostname:port/db_name```.
-PostgreSQL is recommended.
+    - `STRING_SESSION`: The string session obtained earlier.
+    - `CF_API_KEY`: Obtain this API key from [here](https://t.me/IntellivoidDev).
+    - `DATABASE_URL`: Your SQL database URL, which should resemble something like this: `sqldbtype://username:pw@hostname:port/db_name`. PostgreSQL is recommended.
+    - `NAME`: Your bot will respond to AI-enabled users whenever this name is mentioned.
+>>>>>>> Stashed changes
 
-• ```NAME```: Your bot will reply to the AI-enabled users everytime this name is said.
+- **Editing the `config.ini` File:**
+    Simply set the values mentioned above in the `config.ini` file, excluding `ENV`.
 
-However, if you're gonna use ```config.ini```, go ahead and set the values given above with the exception of ```ENV```.
+## Running the Bot ▶️
+After configuring either through environment variables or the `config.ini` file, initiate the bot by running:
+```bash
+python3 -m chatbot
+```
+Congratulations! Your bot is now operational!
 
-## Running the bot
-After setting the required environment variables/editing the ```config.ini``` file, run ```python3 -m chatbot```.
+## Credits 🌟
+Acknowledgments go to:
 
-Congrats, your bot should now be up!
-
-## Credits
-• [Intellivoid](https://github.com/intellivoid) for providing the API used for this project.
-
-• [pyrogram](https://github.com/pyrogram) - the library used for this project.
+- [Intellivoid](https://github.com/intellivoid) for providing the indispensable API utilized in this project.
+- [Pyrogram](https://github.com/pyrogram) for serving as the foundational library for this endeavor.

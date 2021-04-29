@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+from configparser import ConfigParser
 
 from pyrogram import Client
 
@@ -12,9 +13,9 @@ logging.basicConfig(
 LOGGER = logging.getLogger(__name__)
 
 # If python version < 3.6, quit
-if sys.version_info[0] < 3 or sys.version_info[1] < 6:
+if sys.version_info < (3, 6):
     LOGGER.error("You need at least python v3.6.x\nBot quitting.")
-    quit(1)
+    sys.exit(1)
 
 ENV = bool(os.environ.get("ENV", False))
 
@@ -24,6 +25,7 @@ if ENV:
     CF_API_KEY = os.environ.get("CF_API_KEY")
     DATABASE_URL = os.environ.get("DATABASE_URL")
     NAME = os.environ.get("NAME")
+<<<<<<< Updated upstream
 
 else:
     from configparser import ConfigParser
@@ -46,3 +48,14 @@ if SESSION_NAME:
 elif STRING_SESSION:
     SESSION = STRING_SESSION
 app = Client(SESSION)
+=======
+else:
+    parser = ConfigParser()
+    parser.read("config.ini")
+    STRING_SESSION = parser.get("config", "STRING_SESSION")
+    CF_API_KEY = parser.get("config", "CF_API_KEY")
+    DATABASE_URL = parser.get("config", "DATABASE_URL")
+    NAME = parser.get("config", "NAME")
+
+app = Client(STRING_SESSION)
+>>>>>>> Stashed changes
