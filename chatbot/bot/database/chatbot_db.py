@@ -17,7 +17,7 @@ class Chatbot(BASE):
         self.expires = expires
 
 
-Chatbot.__table__.create(checkfirst=True)
+BASE.metadata.create_all(SESSION.bind)
 
 INSERTION_LOCK = threading.RLock()
 USERS = set()

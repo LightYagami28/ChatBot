@@ -14,9 +14,10 @@ LOGGER = logging.getLogger(__name__)
 
 # If python version < 3.6, quit
 if sys.version_info < (3, 6):
-    LOGGER.error("You need at least python v3.6.x\nBot quitting.")
+    LOGGER.error("You need at least Python v3.6.x\nBot quitting.")
     sys.exit(1)
 
+# Check if running in environment mode
 ENV = bool(os.environ.get("ENV", False))
 
 if ENV:
@@ -25,11 +26,7 @@ if ENV:
     CF_API_KEY = os.environ.get("CF_API_KEY")
     DATABASE_URL = os.environ.get("DATABASE_URL")
     NAME = os.environ.get("NAME")
-<<<<<<< Updated upstream
-
 else:
-    from configparser import ConfigParser
-
     parser = ConfigParser()
     parser.read("config.ini")
     config = parser["config"]
@@ -41,21 +38,11 @@ else:
     NAME = config.get("NAME")
 
 if not SESSION_NAME and not STRING_SESSION:
-    print("There's no session set up!")
-    quit(1)
-if SESSION_NAME:
-    SESSION = SESSION_NAME
-elif STRING_SESSION:
-    SESSION = STRING_SESSION
-app = Client(SESSION)
-=======
-else:
-    parser = ConfigParser()
-    parser.read("config.ini")
-    STRING_SESSION = parser.get("config", "STRING_SESSION")
-    CF_API_KEY = parser.get("config", "CF_API_KEY")
-    DATABASE_URL = parser.get("config", "DATABASE_URL")
-    NAME = parser.get("config", "NAME")
+    LOGGER.error("No session set up!")
+    sys.exit(1)
 
-app = Client(STRING_SESSION)
->>>>>>> Stashed changes
+# Choose the session
+SESSION = SESSION_NAME if SESSION_NAME else STRING_SESSION
+
+# Initialize the Pyrogram client
+app = Client(SESSION)

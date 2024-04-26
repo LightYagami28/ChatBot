@@ -35,7 +35,7 @@ async def help(_, message: Message) -> None:
 async def add_user(_, message: Message) -> None:
     """Enable AI for a user."""
     if not message.reply_to_message:
-        message.edit_text(
+        await message.edit_text(
             "Reply to someone to enable chatbot for that person!")
         return
     user_id = message.reply_to_message.from_user.id
@@ -55,7 +55,7 @@ async def add_user(_, message: Message) -> None:
 async def rem_user(_, message: Message) -> None:
     """Remove AI for a user."""
     if not message.reply_to_message:
-        message.edit_text("You've gotta reply to someone!")
+        await message.edit_text("You've gotta reply to someone!")
         return
     user_id = message.reply_to_message.from_user.id
     is_user = db.is_user(user_id)
@@ -80,7 +80,7 @@ def check_message(msg: Message) -> bool:
 
 
 @app.on_message(filters.text)
-async def chatbot(app: Client, message: Message) -> None:
+async def chatbot(_, message: Message) -> None:
     msg = message
     if not check_message(msg):
         return

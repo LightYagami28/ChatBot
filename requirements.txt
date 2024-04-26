@@ -1,11 +1,7 @@
 coffeehouse
 configparser
-<<<<<<< Updated upstream
 psycopg2
-Pyrogram==1.0.7
-=======
+pyrogram==1.0.7
 psycopg2-binary
-pyrogram==0.16.0
->>>>>>> Stashed changes
 sqlalchemy
 TgCrypto==1.2.0

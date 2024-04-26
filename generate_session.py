@@ -12,4 +12,5 @@ async def create_session() -> None:
     async with Client(NAME):
         pass
 
-asyncio.run(create_session())
+if __name__ == "__main__":
+    asyncio.run(create_session())
