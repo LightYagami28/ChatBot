@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> 79e2153a8319d46fb200e642438f2dfb9ee21c9c
 # IMPORTANT
 Since the API has been [discontinued](https://t.me/Intellivoid/559), this will no longer work. 
 
